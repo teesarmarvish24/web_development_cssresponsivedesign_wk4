@@ -1,0 +1,117 @@
+/* Basic Reset and Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+nav {
+    background-color: #555;
+    padding: 0.5rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Flexbox for horizontal navigation */
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Main Layout with CSS Grid */
+
+.main-layout {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    
+    /* Default layout for larger screens (desktop) */
+    grid-template-columns: 3fr 1fr; /* Two columns: a wide content area and a narrower sidebar */
+    grid-template-areas:
+        "content-area sidebar";
+}
+
+.content-area {
+    grid-area: content-area;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #e2e2e2;
+    padding: 1rem;
+    border-left: 3px solid #ccc;
+}
+
+
+/* Flexbox for Card Section */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    gap: 1rem; /* Space between cards */
+    justify-content: space-around; /* Distributes cards evenly */
+    margin-top: 1rem;
+}
+
+.card {
+    flex: 1 1 300px; /* flex-grow, flex-shrink, flex-basis */
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design with Media Queries */
+
+@media (max-width: 768px) {
+    /* Tablet View */
+    .main-layout {
+        /* Change Grid layout to a single column for tablets */
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "content-area"
+            "sidebar";
+    }
+
+    .sidebar {
+        border-left: none;
+        border-top: 3px solid #ccc;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile View */
+    nav ul {
+        flex-direction: column; /* Stacks navigation links vertically on mobile */
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
